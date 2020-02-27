@@ -46,12 +46,12 @@ function draw() {
 //   }
 // }
 
-function randomizer() {
+function randomizer(){
   animating = false;
   if (dogs[0]) {
     background(random(200, 255));
     randomIndex = int(random(dogs.length));
-    text(dogs[randomIndex].name + "'s favorite color is " +dogs[randomIndex].color, 50, 50);
+    text(dogs[randomIndex].name + "'s favorite color is " + dogs[randomIndex].color, 50, 50);
     dogs.splice(randomIndex, 1);
   } else {
     background(random(200, 255));
