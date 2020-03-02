@@ -25,7 +25,9 @@ let animating = false;
 function setup() {
   createCanvas(600, 600);
   background(200);
-  text("click to randomize", 50, 50);
+  textSize(35);
+  text("click to randomize", 150, 300);
+
   // setTimeout(changeBackground,1000);
 
 
@@ -33,34 +35,43 @@ function setup() {
 
 function draw() {
   if (animating == true) {
-    ellipse(random(width), random(height), random(50, 200));
+    fill(random(255), random(255), random(255), random(255));
+    rect(random(width), random(height), random(20), random(200), random(70));
+    rect(random(width), random(height), random(200), random(50), random(70));
   }
 }
 // function changeBackground(){
 //   if (counter <= 5){
 //   counter++;
-// background(randome(2550),random(255),randome(255));
+// background(randome(255),random(255),randome(255));
 // setTimeout(changeBackground,1000);
 // } else {
 //
 //   }
 // }
 
-function randomizer(){
+function randomizer() {
   animating = false;
   if (dogs[0]) {
-    background(random(200, 255));
+    background(random(255), random(255), random(255));
     randomIndex = int(random(dogs.length));
-    text(dogs[randomIndex].name + "'s favorite color is " + dogs[randomIndex].color, 50, 50);
+    fill('white');
+    text(dogs[randomIndex].name + "'s favorite color is " + dogs[randomIndex].color, 70, 300);
     dogs.splice(randomIndex, 1);
   } else {
-    background(random(200, 255));
-    text("nothing is left!",50,50);
-    }
+    background(random(255), random(255), random(255));
+    fill('white');
+    text("nothing is left!", 170, 300);
   }
+}
 
-  function mousePressed() {
-    animating = true;
-    setTimeout(randomizer, 2000);
+function mousePressed() {
+  animating = true;
+  setTimeout(randomizer, 3000);
+}
 
-  }
+function mouseMoved() {
+  stroke(random(255), random(255), random(255), random(255));
+  strokeWeight(random(20));
+  point(mouseX, mouseY);
+}
