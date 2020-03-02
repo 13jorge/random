@@ -24,9 +24,10 @@ let animating = false;
 
 function setup() {
   createCanvas(600, 600);
-  background(200);
+  background(random(255),random(255),random(255),);
   textSize(35);
-  text("click to randomize", 150, 300);
+  fill('white');
+  text("CLICK TO RANDOMIZE", 100, 300);
 
   // setTimeout(changeBackground,1000);
 
@@ -37,6 +38,7 @@ function draw() {
   if (animating == true) {
     fill(random(255), random(255), random(255), random(255));
     rect(random(width), random(height), random(20), random(200), random(70));
+      fill(random(255), random(255), random(255), random(255));
     rect(random(width), random(height), random(200), random(50), random(70));
   }
 }
