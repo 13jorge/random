@@ -69,11 +69,12 @@ function randomizer() {
 
 function mousePressed() {
   animating = true;
-  setTimeout(randomizer, 3000);
+  setTimeout(randomizer, 1000);
 }
 
 function mouseMoved() {
   stroke(random(255), random(255), random(255), random(255));
   strokeWeight(random(20));
   point(mouseX, mouseY);
+  // strokeWeight(0);
 }
