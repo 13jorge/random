@@ -21,13 +21,28 @@ let dogs = [{
 let randomIndex;
 let counter = 0;
 let animating = false;
+let balls = [];
+let imageCounter = 0;
+let button;
+
+function preload() {
+  for (let i = 0; i <= 7; i++) {
+    balls[i] = loadImage(`assets/ball${i}.jpg`);
+  }
+}
 
 function setup() {
   createCanvas(600, 600);
-  background(random(255),random(255),random(255),);
+  background(random(255), random(255), random(255), );
   textSize(35);
   fill('white');
   text("CLICK TO RANDOMIZE", 100, 300);
+  imageMode(CENTER);
+  frameRate(8);
+
+   button = createButton("click to randomize");
+   button.mousePressed(buttonPressed);
+   button.class("randomizerButton");
 
   // setTimeout(changeBackground,1000);
 
@@ -35,11 +50,20 @@ function setup() {
 }
 
 function draw() {
+
   if (animating == true) {
-    fill(random(255), random(255), random(255), random(255));
-    rect(random(width), random(height), random(20), random(200), random(70));
-      fill(random(255), random(255), random(255), random(255));
-    rect(random(width), random(height), random(200), random(50), random(70));
+    clear();
+    image(balls[imageCounter], width / 2, height / 2);
+    if (imageCounter < balls.length - 1) {
+      imageCounter++;
+      console.log(imageCounter);
+    } else {
+      imageCounter = 0;
+    }
+    // fill(random(255), random(255), random(255), random(255));
+    // rect(random(width), random(height), random(20), random(200), random(70));
+    //   fill(random(255), random(255), random(255), random(255));
+    // rect(random(width), random(height), random(200), random(50), random(70));
   }
 }
 // function changeBackground(){
@@ -55,11 +79,13 @@ function draw() {
 function randomizer() {
   animating = false;
   if (dogs[0]) {
-    background(random(255), random(255), random(255));
+    // background(random(255), random(255), random(255));
+    clear();
     randomIndex = int(random(dogs.length));
-    fill('white');
-    text(dogs[randomIndex].name + "'s favorite color is " + dogs[randomIndex].color, 70, 300);
+    // fill('white');
+    image(random(balls), width / 2, height / 2);
     dogs.splice(randomIndex, 1);
+        text(dogs[randomIndex].name + "'s favorite color is " + dogs[randomIndex].color, width/2, height/2);
   } else {
     background(random(255), random(255), random(255));
     fill('white');
@@ -67,7 +93,7 @@ function randomizer() {
   }
 }
 
-function mousePressed() {
+function buttonPressed() {
   animating = true;
   setTimeout(randomizer, 1000);
 }
