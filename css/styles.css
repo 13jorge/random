@@ -6,8 +6,7 @@ canvas{
   display: block;
 }
 input{
-  display:block;
-
+  display: block;
 }
 
 .randomizerButton{
@@ -20,5 +19,5 @@ input{
 }
 
 .column {
-  flex: 50%;
+  flex: 50%s;
 }

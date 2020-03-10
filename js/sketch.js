@@ -19,23 +19,24 @@ function preload() {
 
 function setup() {
   cnv = createCanvas(600, 600);
-cnv.parent("#canvasDiv");
+  cnv.parent("#canvasDiv");
   background(random(255), random(255), random(255), );
   textSize(35);
   imageMode(CENTER);
   // frameRate(8);
 
-   // button = createButton("click to randomize");
-startRandomizerbutton = select('#randButton');
-   startRandomizerbutton.mousePressed(buttonPressed);
+  // button = createButton("click to randomize");
 
-   addMoreButton = select('#addMoreButton');
-   addMoreButton.mousePressed(addAnotherInput);
+  startRandomizerbutton = select('#randButton');
+  startRandomizerbutton.mousePressed(buttonPressed);
 
-for (let i = 0; i < 3; i++){
-   nameInputs.push(createInput());
-   nameInputs[nameInputs.length - 1].parent("#inputFields");
-}
+  addMoreButton = select('#addMoreButton');
+  addMoreButton.mousePressed(addAnotherInput);
+
+  for (let i = 0; i < 3; i++) {
+    nameInputs.push(createInput());
+    nameInputs[nameInputs.length - 1].parent("#inputFields");
+  }
 
   // setTimeout(changeBackground,1000);
 
@@ -55,17 +56,12 @@ function draw() {
     // }
     fill(random(255), random(255), random(255), random(255));
     rect(random(width), random(height), random(20), random(200), random(70));
-      fill(random(255), random(255), random(255), random(255));
+    fill(random(255), random(255), random(255), random(255));
     rect(random(width), random(height), random(200), random(50), random(70));
   }
 }
 
-function addAnotherInput(){
 
-  nameInputs.push(createInput());
-  nameInputs[nameInputs.length - 1].parent("#inputFields");
-
-}
 // function changeBackground(){
 //   if (counter <= 5){
 //   counter++;
@@ -86,8 +82,8 @@ function randomizer() {
     // image(random(balls), width / 2, height / 2);
     background(random(255), random(255), random(255));
 
-        text(dogs[randomIndex], 270, 300);
-            dogs.splice(randomIndex, 1);
+    text(dogs[randomIndex], 270, 300);
+    dogs.splice(randomIndex, 1);
   } else {
     background(random(255), random(255), random(255));
     fill('white');
@@ -95,14 +91,21 @@ function randomizer() {
   }
 }
 
+function addAnotherInput() {
+
+  nameInputs.push(createInput());
+  nameInputs[nameInputs.length - 1].parent("#inputFields");
+
+}
+
 function buttonPressed() {
 
-  if(firstTime == true){
-for(let i = 0; i < nameInputs.length; i++){
-  dogs.push(nameInputs[i].value());
-}
-firstTime = false;
-}
+  if (firstTime == true) {
+    for (let i = 0; i < nameInputs.length; i++) {
+      dogs.push(nameInputs[i].value());
+    }
+    firstTime = false;
+  }
   animating = true;
   setTimeout(randomizer, 1000);
 }
