@@ -86,7 +86,7 @@ function randomizer() {
     // image(random(balls), width / 2, height / 2);
     background(random(255), random(255), random(255));
 
-        text(dogs[randomIndex], width/2, height/2);
+        text(dogs[randomIndex], 270, 300);
             dogs.splice(randomIndex, 1);
   } else {
     background(random(255), random(255), random(255));
