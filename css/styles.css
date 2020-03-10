@@ -8,7 +8,7 @@ canvas{
 
 .randomizerButton{
   padding: 20px;
-  background-color: #28b07a;
+  background-color: #BF2300;
 }
 
 .row {
@@ -16,5 +16,5 @@ canvas{
 }
 
 .column {
-  flex: 50%;
+  flex: none;
 }

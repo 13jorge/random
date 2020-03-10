@@ -22,10 +22,8 @@ function setup() {
 cnv.parent("#canvasDiv");
   background(random(255), random(255), random(255), );
   textSize(35);
-  fill('white');
-  text("CLICK TO RANDOMIZE", 100, 300);
   imageMode(CENTER);
-  frameRate(8);
+  // frameRate(8);
 
    // button = createButton("click to randomize");
 startRandomizerbutton = select('#randButton');
@@ -47,18 +45,18 @@ for (let i = 0; i < 3; i++){
 function draw() {
 
   if (animating == true) {
-    clear();
-    image(balls[imageCounter], width / 2, height / 2);
-    if (imageCounter < balls.length - 1) {
-      imageCounter++;
-      console.log(imageCounter);
-    } else {
-      imageCounter = 0;
-    }
-    // fill(random(255), random(255), random(255), random(255));
-    // rect(random(width), random(height), random(20), random(200), random(70));
-    //   fill(random(255), random(255), random(255), random(255));
-    // rect(random(width), random(height), random(200), random(50), random(70));
+    // clear();
+    // image(balls[imageCounter], width / 2, height / 2);
+    // if (imageCounter < balls.length - 1) {
+    //   imageCounter++;
+    //   console.log(imageCounter);
+    // } else {
+    //   imageCounter = 0;
+    // }
+    fill(random(255), random(255), random(255), random(255));
+    rect(random(width), random(height), random(20), random(200), random(70));
+      fill(random(255), random(255), random(255), random(255));
+    rect(random(width), random(height), random(200), random(50), random(70));
   }
 }
 
@@ -85,7 +83,9 @@ function randomizer() {
     clear();
     randomIndex = int(random(dogs.length));
     // fill('white');
-    image(random(balls), width / 2, height / 2);
+    // image(random(balls), width / 2, height / 2);
+    background(random(255), random(255), random(255));
+
         text(dogs[randomIndex], width/2, height/2);
             dogs.splice(randomIndex, 1);
   } else {
