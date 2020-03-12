@@ -107,7 +107,7 @@ function buttonPressed() {
     firstTime = false;
   }
   animating = true;
-  setTimeout(randomizer, 1000);
+  setTimeout(randomizer, 3000);
 }
 
 function mouseMoved() {
